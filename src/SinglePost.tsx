@@ -138,7 +138,7 @@ const produc = {
   
   useEffect(() => {
     const fetchProduct=async()=>{
-        const res = await axios.get(`http://localhost:3333/product/${productId}`)
+        const res = await axios.get(`https://shoescom-backend.onrender.com/product/${productId}`)
         setProduct(res.data)
     }
     fetchProduct()
@@ -146,7 +146,7 @@ const produc = {
 
   useEffect(()=>{
     const fetchAllReviews=async()=>{
-      const res = await axios.get(`http://localhost:3333/review/${productId}`)
+      const res = await axios.get(`https://shoescom-backend.onrender.com/review/${productId}`)
       setReview(res.data)
    
     }
@@ -165,7 +165,7 @@ const produc = {
 
     try{ 
      
-      await axios.post(`http://localhost:3333/review/639f5d2ab447416b982b578a/${productId}`,newReview)   
+      await axios.post(`https://shoescom-backend.onrender.com/review/639f5d2ab447416b982b578a/${productId}`,newReview)   
       //window.location.reload() 
    }catch(err){}
  }
@@ -175,7 +175,7 @@ const produc = {
 
   try{
   
-    await axios.put(`http://localhost:3333/${user_detail._id}/${productId}`)
+    await axios.put(`https://shoescom-backend.onrender.com/${user_detail._id}/${productId}`)
     //window.location.reload()
   }
   catch(err){}
