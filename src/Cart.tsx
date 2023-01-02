@@ -18,7 +18,7 @@ export default function Cart() {
 
  useEffect(() => {
     const FetchUserCart = async () => {
-      const res = await axios.get(`http://localhost:3333/639f5d2ab447416b982b578a`);  
+      const res = await axios.get(`https://shoescom-backend.onrender.com/639f5d2ab447416b982b578a`);  
       setCart(res.data.Cart);
     };
     FetchUserCart();
@@ -47,7 +47,7 @@ export default function Cart() {
         })
       );
 
-      await axios.put(`http://localhost:3333/cartUpdate/639f5d2ab447416b982b578a/${c.id}/${e.target.value}`);
+      await axios.put(`https://shoescom-backend.onrender.com/cartUpdate/639f5d2ab447416b982b578a/${c.id}/${e.target.value}`);
     } 
     catch (err) {
       console.error(err);
@@ -64,7 +64,7 @@ export default function Cart() {
       setCart(
         cart.filter((f:any)=>c.id != f.id)
       )
-      await axios.put(`http://localhost:3333/removeProduct/639f5d2ab447416b982b578a/${c.id}`)
+      await axios.put(`https://shoescom-backend.onrender.com/removeProduct/639f5d2ab447416b982b578a/${c.id}`)
      // window.location.reload()
     }
     catch(err){

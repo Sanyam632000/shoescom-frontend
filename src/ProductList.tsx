@@ -54,7 +54,7 @@ const products = [
 
    useEffect(()=>{
      const fetchProducts=async()=>{
-      const products = await axios.get("http://localhost:3333/product")
+      const products = await axios.get("https://shoescom-backend.onrender.com/product")
       setProduct(products.data)
      }
      fetchProducts()

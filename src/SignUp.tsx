@@ -23,7 +23,7 @@ const SignUp =()=>{
       }
 
       if(password.current.value == passwordAgain.current.value){
-        const newUser = await axios.post(`http://localhost:3333/signup`,User)
+        const newUser = await axios.post(`https://shoescom-backend.onrender.com/signup`,User)
         redirect('/login')
       }
       else{
