@@ -57,8 +57,7 @@ export default function Filter() {
 
    useEffect(()=>{
      const fetchProducts=async()=>{
-      const products = await axios.get("http://localhost:3333/product")
-      console.log(products.data)
+      const products = await axios.get("https://shoescom-backend.onrender.com/product")
       setProduct(products.data)
      }
      fetchProducts()
@@ -170,8 +169,8 @@ export default function Filter() {
 
  useEffect(()=>{
     const fetchFilterByColorAndSize=async()=>{
-      const res = await axios.get(`http://localhost:3333/product/filter/byColorAndSize?${filterTrial.map((f:any)=>f).join("&")}`)
-     console.log(`http://localhost:3333/product/filter/byColorAndSize?${filterTrial.map((f:any)=>f).join("&")}`)
+      const res = await axios.get(`https://shoescom-backend.onrender.com/product/filter/byColorAndSize?${filterTrial.map((f:any)=>f).join("&")}`)
+     console.log(`https://shoescom-backend.onrender.com/product/filter/byColorAndSize?${filterTrial.map((f:any)=>f).join("&")}`)
      setFilterByColorAndSize(res.data)
      console.log(res.data)
      /* console.log(`http://localhost:3333/product/filter/byColor?color=${filterByColor.map((f:any)=>f).join("&color=")}
