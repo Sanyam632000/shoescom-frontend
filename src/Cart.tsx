@@ -8,21 +8,23 @@ import {
 } from "react-icons/ai";
 import axios from "axios";
 import { AuthContext } from "./AuthContet";
+import {useParams} from 'react-router-dom'
 
 
 export default function Cart() {
   
  const {user_detail} = useContext<any>(AuthContext)
-
+ let {userId} = useParams()
  const [cart, setCart] = useState<any>(user_detail?.Cart);
 
  useEffect(() => {
     const FetchUserCart = async () => {
-      const res = await axios.get(`https://shoescom-backend.onrender.com/639f5d2ab447416b982b578a`);  
+      const res = await axios.get(`https://shoescom-backend.onrender.com/${user_detail._id}`);  
+      console.log(res.data)
       setCart(res.data.Cart);
     };
     FetchUserCart();
-  }, []);
+  }, [user_detail]);
 
   const total = useMemo(() => {
     return cart?.reduce(
@@ -47,7 +49,7 @@ export default function Cart() {
         })
       );
 
-      await axios.put(`https://shoescom-backend.onrender.com/cartUpdate/639f5d2ab447416b982b578a/${c.id}/${e.target.value}`);
+      await axios.put(`https://shoescom-backend.onrender.com/cartUpdate/${user_detail._id}/${c.id}/${e.target.value}`);
     } 
     catch (err) {
       console.error(err);
@@ -64,7 +66,7 @@ export default function Cart() {
       setCart(
         cart.filter((f:any)=>c.id != f.id)
       )
-      await axios.put(`https://shoescom-backend.onrender.com/removeProduct/639f5d2ab447416b982b578a/${c.id}`)
+      await axios.put(`https://shoescom-backend.onrender.com/removeProduct/${user_detail._id}/${c.id}`)
      // window.location.reload()
     }
     catch(err){
